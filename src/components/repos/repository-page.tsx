@@ -17,7 +17,7 @@ export async function RepositoryPage({ data }: { data: GetRepoType }) {
       <RepositoryPageHeader data={data} />
       <div className="mx-auto px-4 py-8 md:px-6">
         <div className="grid gap-8">
-          <NotesSection repoId={data.id} />
+          <NotesSection repoId={data.id.toString()} />
           <div>
             <UserSection user={data.owner} />
           </div>
