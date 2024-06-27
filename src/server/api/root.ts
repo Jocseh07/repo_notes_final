@@ -1,5 +1,13 @@
-import { postRouter } from "~/server/api/routers/post";
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
+import { branchesRouter } from "./routers/branches";
+import { repositoryRouter } from "./routers/repos";
+import { userRouter } from "./routers/users";
+import { releasesRouter } from "./routers/releases";
+import { ratesRouter } from "./routers/rates";
+import { accountsRouter } from "./routers/accounts";
+import { notesRouter } from "./routers/notes";
+import { commitsRouter } from "./routers/commits";
+import { issuesRouter } from "./routers/issues";
 
 /**
  * This is the primary router for your server.
@@ -7,7 +15,15 @@ import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  post: postRouter,
+  repos: repositoryRouter,
+  users: userRouter,
+  branches: branchesRouter,
+  releases: releasesRouter,
+  rates: ratesRouter,
+  accounts: accountsRouter,
+  notes: notesRouter,
+  commits: commitsRouter,
+  issues: issuesRouter,
 });
 
 // export type definition of API
