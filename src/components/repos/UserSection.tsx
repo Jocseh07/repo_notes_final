@@ -19,9 +19,9 @@ export default async function UserSection({
   return (
     <div>
       <Card className="mx-auto overflow-hidden rounded-2xl shadow-lg">
-        <CardHeader className="flex items-center gap-4 bg-primary p-6 text-primary-foreground">
+        <CardHeader className="bg-secondary text-primary flex items-center gap-4 p-6">
           <Link href={`/users/${userData.login}`} className="">
-            <Avatar className="h-16 w-16  cursor-pointer  ring-2 ring-background">
+            <Avatar className="ring-background h-16  w-16  cursor-pointer ring-2">
               <AvatarImage src={user.avatar_url ?? "/placeholder-user.jpg"} />
               <AvatarFallback>RN</AvatarFallback>
             </Avatar>
@@ -36,22 +36,22 @@ export default async function UserSection({
           <div className="flex items-center justify-around gap-4 text-center">
             <div>
               <div className="text-3xl font-semibold">{userData.followers}</div>
-              <div className="text-sm text-muted-foreground">Followers</div>
+              <div className="text-muted-foreground text-sm">Followers</div>
             </div>
             <div>
               <div className="text-3xl font-semibold">{userData.following}</div>
-              <div className="text-sm text-muted-foreground">Following</div>
+              <div className="text-muted-foreground text-sm">Following</div>
             </div>
             <Link href={`/users/${userData.login}`} className="">
               <div className="text-3xl font-semibold">
                 {userData.public_repos}
               </div>
-              <div className="text-sm text-muted-foreground">Repos</div>
+              <div className="text-muted-foreground text-sm">Repos</div>
             </Link>
           </div>
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-center gap-2 text-center">
-              <TwitterIcon className="h-5 w-5 text-muted-foreground" />
+              <TwitterIcon className="text-muted-foreground h-5 w-5" />
               <Link
                 href={`https://x.com/${userData.twitter_username}`}
                 target="_blank"
@@ -61,7 +61,7 @@ export default async function UserSection({
                 {userData.twitter_username ?? "No Twitter"}
               </Link>
             </div>
-            <div className=" flex items-center justify-center text-center text-muted-foreground">
+            <div className=" text-muted-foreground flex items-center justify-center text-center">
               {userData.bio ?? (
                 <div className="flex">
                   <X />

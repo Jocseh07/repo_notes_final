@@ -6,6 +6,8 @@ import { z } from "zod";
 export type RatesType = Endpoints["GET /rate_limit"]["response"]["data"];
 export type SearchReposType =
   Endpoints["GET /search/repositories"]["response"]["data"];
+export type SearchOneReposType =
+  Endpoints["GET /search/repositories"]["response"]["data"]["items"][0];
 export type SearchUsersType =
   Endpoints["GET /search/users"]["response"]["data"];
 export type OneUsersType =

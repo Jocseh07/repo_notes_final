@@ -3,14 +3,15 @@ import SearchBar from "./SearchBar";
 import { ModeToggle } from "./ModeToggle";
 import UserMenu from "./UserMenu";
 import APIUsage from "./Banner";
+import { Separator } from "../ui/separator";
 
 export async function NavBar() {
   // const showAPIUsage = !!(remaining < limit / 2);
   const showAPIUsage = true;
 
   return (
-    <div>
-      <header className="flex h-14 items-center justify-between gap-2 border-b bg-background px-4 lg:px-6">
+    <div className="flex flex-col gap-4">
+      <header className="bg-background flex h-14 items-center justify-between gap-2 px-4 py-4 lg:px-6">
         <NavIcon />
         <SearchBar />
         <div className="flex gap-2">
@@ -18,6 +19,7 @@ export async function NavBar() {
           <UserMenu />
         </div>
       </header>
+      <Separator />
       {showAPIUsage && <APIUsage />}
     </div>
   );

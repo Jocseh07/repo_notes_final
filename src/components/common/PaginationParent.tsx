@@ -14,7 +14,7 @@ export function PaginationParent({
   const router = useRouter();
   const onChangePage = (page: number) => {
     if (page < 1 || page > totalPages) return;
-    router.push(`${redirectURL}&page=${page}`);
+    router.push(`${redirectURL}page=${page}`);
   };
   return (
     <div>

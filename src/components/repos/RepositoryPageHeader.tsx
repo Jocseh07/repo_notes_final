@@ -1,4 +1,5 @@
-import { DoorOpenIcon, GitBranchIcon, StarIcon } from "lucide-react";
+import { DoorOpenIcon, GitBranchIcon, Github, StarIcon } from "lucide-react";
+import Link from "next/link";
 import { api } from "~/trpc/server";
 import type { GetRepoType } from "~/types";
 
@@ -11,7 +12,7 @@ async function RepositoryPageHeader({ data }: { data: GetRepoType }) {
   }
   return (
     <div>
-      <header className="bg-primary px-4 py-8 text-primary-foreground md:px-6">
+      <header className="bg-secondary text-primary px-4 py-8 md:px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="grid items-center gap-4 md:grid-cols-[1fr_300px]">
             <div className="space-y-2">
@@ -19,15 +20,18 @@ async function RepositoryPageHeader({ data }: { data: GetRepoType }) {
               <p className="text-muted-foreground">{data.description}</p>
             </div>
             <div className="flex items-center justify-end gap-4">
-              <div className="flex items-center gap-1 rounded-md bg-primary-foreground/20 px-3 py-1 text-sm">
+              <Link href={data.html_url}>
+                <Github className="ml-2 inline-block h-6 w-6" />
+              </Link>
+              <div className="bg-primary-foreground/20 flex items-center gap-1 rounded-md px-3 py-1 text-sm">
                 <StarIcon className="h-4 w-4" />
                 <span>{data.stargazers_count}</span>
               </div>
-              <div className="flex items-center gap-1 rounded-md bg-primary-foreground/20 px-3 py-1 text-sm">
+              <div className="bg-primary-foreground/20 flex items-center gap-1 rounded-md px-3 py-1 text-sm">
                 <GitBranchIcon className="h-4 w-4" />
                 <span>{branchCount}</span>
               </div>
-              <div className="flex items-center gap-1 rounded-md bg-primary-foreground/20 px-3 py-1 text-sm">
+              <div className="bg-primary-foreground/20 flex items-center gap-1 rounded-md px-3 py-1 text-sm">
                 <DoorOpenIcon className="h-4 w-4" />
                 <span>{data.open_issues}</span>
               </div>

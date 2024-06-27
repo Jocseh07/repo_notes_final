@@ -10,11 +10,11 @@ export default async function APIUsage() {
   return (
     <div
       className={cn(
-        "flex items-center bg-primary px-4 py-3 text-primary-foreground md:px-6",
+        "bg-secondary text-primary flex items-center px-4 py-3 md:px-6",
         session ? "justify-center" : "justify-between",
       )}
     >
-      <div className="flex items-center justify-center gap-8">
+      <div className="flex items-center justify-center gap-2 sm:gap-8">
         <div>
           <p className="text-sm font-medium">API Usage Remaining</p>
           <p className="text-lg font-bold">

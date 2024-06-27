@@ -17,14 +17,17 @@ async function CommitsSection({ data }: { data: GetRepoType }) {
           {lastThreeCommits.map((commit) => (
             <div
               key={commit.sha}
-              className="flex items-center gap-4 rounded-md bg-muted p-4"
+              className="bg-muted flex items-center gap-4 rounded-md p-4"
             >
-              <div className="rounded-md bg-muted-foreground/10 p-2">
+              <div className="bg-muted-foreground/10 rounded-md p-2">
                 <GitCommitVerticalIcon className="h-6 w-6" />
               </div>
               <div className="flex-1">
-                <Link href={`${commit.html_url}`} className="font-medium">
-                  {commit.commit.message}
+                <Link
+                  href={`${commit.html_url}`}
+                  className="overflow-hidden  text-ellipsis font-medium"
+                >
+                  {commit.commit.message.slice(0, 200)}
                 </Link>
               </div>
             </div>

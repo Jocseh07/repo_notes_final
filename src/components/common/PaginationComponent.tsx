@@ -28,6 +28,7 @@ function PaginationComponent({
           {currentPage > 1 && (
             <PaginationItem>
               <PaginationPrevious
+                className="cursor-pointer"
                 onClick={() => onPageChange(currentPage - 1)}
               />
             </PaginationItem>
@@ -38,6 +39,7 @@ function PaginationComponent({
           ).map((number) => (
             <PaginationItem key={number}>
               <PaginationLink
+                className="cursor-pointer"
                 onClick={() => onPageChange(number)}
                 isActive={number === currentPage}
               >
@@ -47,7 +49,10 @@ function PaginationComponent({
           ))}
           {currentPage < totalPages && (
             <PaginationItem>
-              <PaginationNext onClick={() => onPageChange(currentPage + 1)} />
+              <PaginationNext
+                className="cursor-pointer"
+                onClick={() => onPageChange(currentPage + 1)}
+              />
             </PaginationItem>
           )}
         </PaginationContent>

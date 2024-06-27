@@ -5,12 +5,16 @@ import CommitsSection from "./CommitsSection";
 import RepositoryPageHeader from "./RepositoryPageHeader";
 import ReleasesSection from "./ReleasesSection";
 import UserSection from "./UserSection";
+import { Separator } from "../ui/separator";
 
 export async function RepositoryPage({ data }: { data: GetRepoType }) {
   return (
     <div>
+      <div className="py-4">
+        <Separator />
+      </div>
       <RepositoryPageHeader data={data} />
-      <main className="container mx-auto max-w-6xl flex-1 px-4 py-8 md:px-6">
+      <div className="mx-auto px-4 py-8 md:px-6">
         <div className="grid gap-8">
           <div>
             <UserSection user={data.owner} />
@@ -22,7 +26,7 @@ export async function RepositoryPage({ data }: { data: GetRepoType }) {
           <CommitsSection data={data} />
           <IssuesSection data={data} />
         </div>
-      </main>
+      </div>
     </div>
   );
 }

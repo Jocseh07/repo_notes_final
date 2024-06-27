@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const NavIcon = () => {
   return (
-    <div>
+    <div className="">
       <Link
         href="/"
         className="flex items-center justify-center gap-2"
