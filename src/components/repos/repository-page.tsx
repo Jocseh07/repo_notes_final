@@ -1,4 +1,4 @@
-import type { GetRepoType } from "~/types";
+import { type GetRepoType } from "~/types";
 import BranchesSection from "./BranchesSection";
 import IssuesSection from "./IssuesSection";
 import CommitsSection from "./CommitsSection";
@@ -6,6 +6,7 @@ import RepositoryPageHeader from "./RepositoryPageHeader";
 import ReleasesSection from "./ReleasesSection";
 import UserSection from "./UserSection";
 import { Separator } from "../ui/separator";
+import NotesSection from "./NotesSection";
 
 export async function RepositoryPage({ data }: { data: GetRepoType }) {
   return (
@@ -16,6 +17,7 @@ export async function RepositoryPage({ data }: { data: GetRepoType }) {
       <RepositoryPageHeader data={data} />
       <div className="mx-auto px-4 py-8 md:px-6">
         <div className="grid gap-8">
+          <NotesSection repoId={data.id} />
           <div>
             <UserSection user={data.owner} />
           </div>

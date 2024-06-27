@@ -1,4 +1,4 @@
-// import { z } from "zod";
+import { z } from "zod";
 
 import { and, eq } from "drizzle-orm";
 import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
@@ -33,5 +33,10 @@ export const notesRouter = createTRPCRouter({
         title: input.title,
         createdById: ctx.session.user.id,
       });
+    }),
+  deleteNotes: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      await ctx.db.delete(notes).where(eq(notes.id, input.id));
     }),
 });
