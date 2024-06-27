@@ -5,7 +5,6 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 import { z } from "zod";
-import { createNote } from "~/utils/createNote";
 
 const TitleSchema = z
   .string()
@@ -43,12 +42,11 @@ function AddNote({ repoId }: { repoId: string }) {
       content,
       repoId,
     };
-    void createNote(createData);
   };
 
   return (
     <form onSubmit={handleAdd}>
-      <div className="bg-background flex flex-col gap-4 rounded-lg border p-4 sm:p-6">
+      <div className="flex flex-col gap-4 rounded-lg border bg-background p-4 sm:p-6">
         <h2 className="text-xl font-semibold">Add/Edit Note</h2>
         <div className="grid gap-2">
           <Label htmlFor="title">Title</Label>
