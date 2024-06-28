@@ -6,76 +6,43 @@ import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 import { z } from "zod";
 
-const TitleSchema = z
-  .string()
-  .min(3, "Minimum 3 chars")
-  .max(20, "< 20 characters");
-const ContentSchema = z.string().min(3, "Minimum 3 chars");
+const noteSchema = z.object({title: z.string().min(1, "Minimum 3 characters"), content: z.string().min(1, "Minimum 3 characters")})
 
-function AddNote({ repoId }: { repoId: string }) {
-  const [titleError, setTitleError] = useState<string | null>(null);
-  const [contentError, setContentError] = useState<string | null>(null);
+export default function AddNote({handleAddNote} : {handleAddNote: (title:string, content:string) => void}) {
 
-  const handleAdd = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setTitleError(null);
-    setContentError(null);
-
-    const formData = new FormData(e.target as HTMLFormElement);
-    const title = formData.get("title") as string;
-    const content = formData.get("content") as string;
-
-    const titlePass = TitleSchema.safeParse({ title });
-    const contentPass = ContentSchema.safeParse({ content });
-    if (!titlePass.success) {
-      setTitleError(titlePass.error.errors.map((e) => e.message).join(", "));
-      return;
+    const handleAdd = (event: React.FormEvent<HTMLFormElement> ) => {
+        event.preventDefault();
+       handleAddNote(formData);
     }
-    if (!contentPass.success) {
-      setContentError(
-        contentPass.error.errors.map((e) => e.message).join(", "),
-      );
-      return;
-    }
-    const createData = {
-      title,
-      content,
-      repoId,
-    };
-  };
-
-  return (
-    <form onSubmit={handleAdd}>
-      <div className="flex flex-col gap-4 rounded-lg border bg-background p-4 sm:p-6">
-        <h2 className="text-xl font-semibold">Add/Edit Note</h2>
-        <div className="grid gap-2">
-          <Label htmlFor="title">Title</Label>
-          <Input
-            id="title"
-            type="text"
-            name="title"
-            placeholder="Enter note title"
-          />
-        </div>
-        <div className="grid gap-2">
-          <Label htmlFor="content">Content</Label>
-          <Textarea
-            id="content"
-            placeholder="Enter note content"
-            className="min-h-[150px]"
-            name="content"
-          />
-        </div>
-        <div className="flex justify-end gap-2">
-          <Button variant="outline">Cancel</Button>
-          <Button type="submit" disabled={!!titleError ?? !!contentError}>
-            Save Note
-          </Button>
-        </div>
-        {titleError && <p className="text-red-500">{titleError}</p>}
-        {contentError && <p className="text-red-500">{contentError}</p>}
-      </div>
-    </form>
-  );
-}
-export default AddNote;
+    return (
+        <form onSubmit={handleAdd}>
+          <div className="flex flex-col gap-4 rounded-lg border bg-background p-4 sm:p-6">
+            <h2 className="text-xl font-semibold">Add/Edit Note</h2>
+            <div className="grid gap-2">
+              <Label htmlFor="title">Title</Label>
+              <Input
+                  id="title"
+                  type="text"
+                  name="title"
+                  placeholder="Enter note title"
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="content">Content</Label>
+              <Textarea
+                  id="content"
+                  placeholder="Enter note content"
+                  className="min-h-[150px]"
+                  name="content"
+              />
+            </div>
+            <div className="flex justify-end gap-2">
+              <Button variant="outline">Cancel</Button>
+              <Button type="submit" >
+                Save Note
+              </Button>
+            </div>
+          </div>
+        </form>
+    );
+  }
