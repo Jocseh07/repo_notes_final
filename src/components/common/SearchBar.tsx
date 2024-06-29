@@ -64,8 +64,20 @@ export function SearchBar() {
               <SelectValue placeholder="Search" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="user">User</SelectItem>
-              <SelectItem value="repo">Repo</SelectItem>
+              <SelectItem
+                role="Select User"
+                aria-label="Search User"
+                value="user"
+              >
+                User
+              </SelectItem>
+              <SelectItem
+                role="Select Repo"
+                aria-label="Search Repo"
+                value="repo"
+              >
+                Repo
+              </SelectItem>
             </SelectContent>
           </Select>
           <Input
@@ -78,6 +90,8 @@ export function SearchBar() {
             variant={error ? "destructive" : "ghost"}
             size="icon"
             type="submit"
+            role="button"
+            aria-label="Search"
           >
             <SearchIcon className="h-5 w-5 text-muted-foreground " />
           </Button>
