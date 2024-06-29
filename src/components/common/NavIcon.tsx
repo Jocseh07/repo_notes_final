@@ -8,7 +8,6 @@ export const NavIcon = () => {
         href="/"
         className="flex items-center justify-center gap-2"
         prefetch={false}
-        role="Home"
         aria-label="Go Home"
       >
         <MountainIcon className="h-6 w-6" />
