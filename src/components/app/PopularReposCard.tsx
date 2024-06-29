@@ -18,7 +18,7 @@ export async function PopularReposCard({ language }: { language: string }) {
           {popular.items.map((repo) => {
             return (
               <li key={repo.id}>
-                <Link href={repo.html_url}>{repo.full_name}</Link>
+                <Link href={`/repos/${repo.full_name}`}>{repo.full_name}</Link>
               </li>
             );
           })}
