@@ -1,5 +1,4 @@
 "use server";
-import { api } from "~/trpc/server";
 import { getServerAuthSession } from "~/server/auth";
 
 export async function fetcher<T>(url: string, revalidate?: number | undefined) {
@@ -8,10 +7,9 @@ export async function fetcher<T>(url: string, revalidate?: number | undefined) {
   // check session to set token
   const session = await getServerAuthSession();
   if (session) {
-    const token = await api.accounts.getToken();
-    if (token) {
+    if (session.user.accessToken) {
       headers = {
-        Authorization: `bearer ${token}`,
+        Authorization: `bearer ${session.user.accessToken}`,
       };
     }
   } else {

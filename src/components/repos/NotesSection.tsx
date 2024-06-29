@@ -2,16 +2,19 @@ import AddNote from "./AddNote";
 import { api } from "~/trpc/server";
 import { revalidatePath } from "next/cache";
 import NotesCard from "./NotesCard";
+import { getServerAuthSession } from "~/server/auth";
 
-export default function NotesSection({
+export default async function NotesSection({
   repoId,
   repoName,
 }: {
   repoId: string;
   repoName: string;
 }) {
+  const session = await getServerAuthSession();
   const addNotes = async (title: string, content: string) => {
     "use server";
+    if (!session) return;
     await api.notes.createNotes({ title, repoId, content });
     revalidatePath(`/repos/${repoName}`);
   };

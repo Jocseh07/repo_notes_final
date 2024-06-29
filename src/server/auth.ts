@@ -1,4 +1,5 @@
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
+import { eq } from "drizzle-orm";
 import {
   getServerSession,
   type DefaultSession,
@@ -28,6 +29,7 @@ declare module "next-auth" {
       id: string;
       // ...other properties
       // role: UserRole;
+      accessToken?: string;
     } & DefaultSession["user"];
   }
 
@@ -44,13 +46,21 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
+    session: async ({ session, user }) => {
+      const token = await db
+        .selectDistinct({ access_token: accounts.access_token })
+        .from(accounts)
+        .where(eq(accounts.userId, user.id));
+      const accessToken = token[0]?.access_token;
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: user.id,
+          accessToken,
+        },
+      };
+    },
   },
   adapter: DrizzleAdapter(db, {
     usersTable: users,

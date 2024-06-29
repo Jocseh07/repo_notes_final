@@ -12,26 +12,25 @@ export default async function UserPage({ user }: { user: GetUserType }) {
   const sortedData = [...repos].sort(
     (a, b) => (b.stargazers_count ?? 0) - (a.stargazers_count ?? 0),
   );
-  console.log(user.name);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 md:px-6">
       <div className="flex items-center gap-6">
-        <Avatar className="border-primary h-20 w-20 border-2 md:h-24 md:w-24">
+        <Avatar className="h-20 w-20 border-2 border-primary md:h-24 md:w-24">
           <AvatarImage src={user.avatar_url ?? "/placeholder-user.jpg"} />
           <AvatarFallback>RN</AvatarFallback>
         </Avatar>
 
         <div className="flex flex-1 flex-col gap-2 ">
           <div className="flex items-center gap-2">
-            <p className="text-primary text-2xl font-bold md:text-3xl">
+            <p className="text-2xl font-bold text-primary md:text-3xl">
               {user.name}
             </p>
             <Link href={user.html_url}>
               <Github className="ml-2 inline-block h-6 w-6" />
             </Link>
           </div>
-          <div className="text-muted-foreground text-sm md:text-base">
+          <div className="text-sm text-muted-foreground md:text-base">
             {user.bio ?? "No bio provided."}
           </div>
         </div>

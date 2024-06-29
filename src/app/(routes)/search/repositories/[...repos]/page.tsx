@@ -15,7 +15,6 @@ export default async function GetRepositories({
     per_page: searchParams.per_page ? +searchParams.per_page : 10,
     page: searchParams.page ? +searchParams.page : 1,
   };
-  // console.log(getParams);
 
   const repositoryData = await api.repos.searchRepos(getParams);
   if (!repositoryData) {
