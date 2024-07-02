@@ -7,7 +7,7 @@ export async function UserMenu() {
   let userId = "";
   if (session) {
     const Id = await api.accounts.getAccountId();
-    if (!Id) return
+    if (!Id) return;
     Id ? (userId = Id) : (userId = "");
   }
 

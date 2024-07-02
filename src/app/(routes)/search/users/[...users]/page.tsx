@@ -31,7 +31,6 @@ export default async function GetUsers({
 
   return (
     <div>
-      <NavBar />
       <div>
         <main className="flex-1">
           <UsersCard data={users} />

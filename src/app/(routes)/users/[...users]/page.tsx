@@ -11,7 +11,6 @@ export default async function GetUsers({ params }: GetOneUserProps) {
 
   return (
     <div>
-      <NavBar />
       <UserPage user={user} />
     </div>
   );

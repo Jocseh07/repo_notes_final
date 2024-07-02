@@ -10,7 +10,8 @@ import {
 import { Avatar, AvatarImage, AvatarFallback } from "~/components/ui/avatar";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { LogOutIcon, UserIcon } from "lucide-react";
+import { LogOutIcon, NotebookTabs, UserIcon } from "lucide-react";
+import Link from "next/link";
 
 export function UserIconMenu({ userId }: { userId: string }) {
   const { data } = useSession();
@@ -39,10 +40,10 @@ export function UserIconMenu({ userId }: { userId: string }) {
             <UserIcon className="mr-2 h-4 w-4" />
             Profile
           </DropdownMenuItem>
-          {/* <DropdownMenuItem>
-            <SettingsIcon className="mr-2 h-4 w-4" />
-            Settings
-          </DropdownMenuItem> */}
+          <DropdownMenuItem>
+            <NotebookTabs className="mr-2 h-4 w-4" />
+            <Link href="/notes">My Notes</Link>
+          </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem className="space-x-2" onClick={() => signOut()}>
             <LogOutIcon className="msr-2 h-4 w-4" />
