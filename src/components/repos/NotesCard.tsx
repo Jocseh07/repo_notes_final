@@ -9,7 +9,6 @@ import { api } from "~/trpc/server";
 import { getServerAuthSession } from "~/server/auth";
 import { readableDate } from "~/utils/readableDate";
 import EditButtons from "./EditButtons";
-import { revalidatePath } from "next/cache";
 
 async function NotesCard({
   repoId,
@@ -23,12 +22,7 @@ async function NotesCard({
   const allNotes = await api.notes.getNotes({ repoId });
   if (!allNotes) return null;
   const notes = allNotes.reverse();
-  async function handleDelete(id: string) {
-    "use server";
-    if (!session) return;
-    await api.notes.deleteNotes({ id });
-    revalidatePath(`/repos/${repoName}`);
-  }
+
   return (
     <div className="grid gap-2">
       {notes.map((note) => (
@@ -40,7 +34,13 @@ async function NotesCard({
                 {readableDate(note.createdAt.toDateString())}
               </CardDescription>
             </div>
-            <EditButtons onDelete={handleDelete} id={note.id} />
+            <EditButtons
+              id={note.id}
+              title={note.title}
+              content={note.content}
+              repoName={repoName}
+              repoId={repoId}
+            />
           </CardHeader>
           <CardContent>
             <p>{note.content}</p>

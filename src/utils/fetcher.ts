@@ -35,6 +35,7 @@ export async function fetcher<T>(url: string, revalidate?: number | undefined) {
       next: next,
     });
     if (!response.ok) {
+      console.log(response.statusText);
       return;
     }
 

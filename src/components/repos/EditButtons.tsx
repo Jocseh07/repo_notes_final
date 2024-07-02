@@ -1,27 +1,41 @@
 "use client";
-import { FilePenIcon, Trash2Icon } from "lucide-react";
+import { TrashIcon } from "lucide-react";
 import { Button } from "../ui/button";
+import EditNoteDialog from "./EditNoteDialog";
+import { deleteNoteAction } from "~/utils/addEditActions";
 
 export default function EditButtons({
-  onDelete,
+  repoId,
+  repoName,
   id,
+  title,
+  content,
 }: {
-  onDelete: (id: string) => Promise<void>;
+  repoId: string;
+  repoName: string;
   id: string;
+  title: string;
+  content: string;
 }) {
   return (
     <div className="flex justify-end gap-2">
       <Button variant="outline" size="sm">
-        <FilePenIcon className="h-4 w-4" />
-        <span className="sr-only">Edit</span>
+        <EditNoteDialog
+          id={id}
+          title={title}
+          content={content}
+          repoName={repoName}
+          repoId={repoId}
+        />
       </Button>
       <Button
-        variant="outline"
+        variant="ghost"
         size="sm"
-        onClick={() => onDelete(id)}
+        className="rounded-full text-red-500"
+        onClick={() => deleteNoteAction(id, repoName)}
         color="destructive"
       >
-        <Trash2Icon className="h-4 w-4" />
+        <TrashIcon className="h-5 w-5" />
         <span className="sr-only">Delete</span>
       </Button>
     </div>

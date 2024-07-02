@@ -10,7 +10,7 @@ export default async function APIUsage() {
   return (
     <div
       className={cn(
-        "bg-secondary text-primary flex items-center px-4 py-3 md:px-6",
+        "flex items-center bg-secondary px-4 py-3 text-primary md:px-6",
         session ? "justify-center" : "justify-between",
       )}
     >
@@ -29,7 +29,7 @@ export default async function APIUsage() {
           </p>
         </div>
       </div>
-      {session ? <SignIn /> : ""}
+      {!session && <SignIn />}
     </div>
   );
 }

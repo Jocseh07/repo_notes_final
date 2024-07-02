@@ -89,7 +89,15 @@ export const GetRepoSchema = z.object({ repo: z.string() });
 export const CreateNotesSchema = z.object({
   content: z.string().min(3),
   repoId: z.string().optional(),
+  repoName: z.string().optional(),
   title: z.string().min(3),
+});
+
+export const UpdateNotesSchema = z.object({
+  content: z.string().min(3),
+  repoId: z.string().min(3),
+  title: z.string().min(3),
+  id: z.string().min(3),
 });
 export const GetNotesSchema = z.object({
   repoId: z.string().optional(),

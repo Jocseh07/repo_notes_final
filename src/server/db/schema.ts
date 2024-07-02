@@ -25,7 +25,7 @@ export const notes = createTable(
       .notNull()
       .primaryKey()
       .$defaultFn(() => crypto.randomUUID()),
-    title: varchar("name", { length: 256 }),
+    title: varchar("name", { length: 256 }).notNull(),
     createdById: varchar("createdById", { length: 255 })
       .notNull()
       .references(() => users.id),
@@ -35,6 +35,7 @@ export const notes = createTable(
     updatedAt: timestamp("updatedAt", { withTimezone: true }),
     content: text("content").notNull(),
     repoId: varchar("repoId", { length: 255 }),
+    repoName: varchar("repoName", { length: 255 }),
   },
   (example) => ({
     createdByIdIdx: index("createdById_idx").on(example.createdById),
