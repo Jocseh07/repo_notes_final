@@ -1,4 +1,4 @@
-import { MountainIcon } from "lucide-react";
+import { Notebook } from "lucide-react";
 import Link from "next/link";
 
 export const NavIcon = () => {
@@ -10,7 +10,7 @@ export const NavIcon = () => {
         prefetch={false}
         aria-label="Go Home"
       >
-        <MountainIcon className="h-6 w-6" />
+        <Notebook className="h-6 w-6" />
         <span className="hidden text-lg font-bold sm:block">RepoNotes</span>
       </Link>
     </div>

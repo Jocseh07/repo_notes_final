@@ -5,7 +5,6 @@ import PopularReposCard from "~/components/app/PopularReposCard";
 export default async function HomePage() {
   return (
     <div>
-      <NavBar />
       <main className="">
         <HeroSection />
         <section className="grid grid-cols-1 gap-4  px-4 pt-4 sm:grid-cols-2 lg:grid-cols-3">

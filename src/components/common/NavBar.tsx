@@ -11,7 +11,7 @@ export async function NavBar() {
 
   return (
     <div className="flex flex-col gap-4">
-      <header className="bg-background flex h-14 items-center justify-between gap-2 px-4 py-4 lg:px-6">
+      <header className="flex h-14 items-center justify-between gap-2 bg-background px-4 py-4 lg:px-6">
         <NavIcon />
         <SearchBar />
         <div className="flex gap-2">

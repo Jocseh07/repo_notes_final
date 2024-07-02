@@ -8,6 +8,8 @@ import { cn } from "~/lib/utils";
 import { ThemeProvider } from "~/components/common/theme-provider";
 import SeshProvider from "~/components/common/session-provider";
 import { getServerAuthSession } from "~/server/auth";
+import NavBar from "~/components/common/NavBar";
+import Footer from "~/components/app/Footer";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -42,7 +44,11 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
             {/* {children} */}
-            <SeshProvider session={session}>{children}</SeshProvider>
+            <SeshProvider session={session}>
+              <NavBar />
+              {children}
+              <Footer />
+            </SeshProvider>
           </ThemeProvider>
         </TRPCReactProvider>
       </body>
