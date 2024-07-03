@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader } from "~/components/ui/card";
 import type { OneUsersType } from "~/types";
 import { TwitterIcon, X } from "lucide-react";
 import { api } from "~/trpc/server";
+import LimitError from "./LimitError";
 
 export default async function SearchUsersCard({
   user,
@@ -13,7 +14,7 @@ export default async function SearchUsersCard({
 }) {
   const userData = await api.users.getUser({ username: user.login });
   if (!userData) {
-    return;
+    return <LimitError />;
   }
 
   return (

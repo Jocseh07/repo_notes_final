@@ -3,6 +3,7 @@ import { api } from "~/trpc/server";
 import NavBar from "~/components/common/NavBar";
 import RepositoryCard from "~/components/search/repositories/RepositoryCard";
 import PaginationParent from "~/components/common/PaginationParent";
+import LimitError from "~/components/common/LimitError";
 
 export default async function GetRepositories({
   params,
@@ -18,7 +19,7 @@ export default async function GetRepositories({
 
   const repositoryData = await api.repos.searchRepos(getParams);
   if (!repositoryData) {
-    return;
+    return <LimitError />;
   }
   const totalPages = Math.ceil(repositoryData.total_count / getParams.per_page);
   const currentPage = getParams.page;

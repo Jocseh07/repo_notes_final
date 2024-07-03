@@ -4,6 +4,7 @@ import { api } from "~/trpc/server";
 import NavBar from "~/components/common/NavBar";
 import { UsersCard } from "~/components/search/users/UsersCard";
 import PaginationParent from "~/components/common/PaginationParent";
+import LimitError from "~/components/common/LimitError";
 
 export default async function GetUsers({
   params,
@@ -19,7 +20,7 @@ export default async function GetUsers({
 
   const users = await api.users.searchUsers(getParams);
   if (!users) {
-    return <div>Error fetching users</div>;
+    return <LimitError />;
   }
   const totalPages = Math.ceil(users.total_count / getParams.per_page);
   const currentPage = getParams.page;

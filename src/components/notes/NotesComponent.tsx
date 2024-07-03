@@ -1,10 +1,11 @@
 import { api } from "~/trpc/server";
 import NotesPageCards from "./NotesPageCards";
+import LimitError from "../common/LimitError";
 
 const NotesComponent = async () => {
   const AllNotes = await api.notes.getNotes({});
   if (!AllNotes) {
-    return <div>No notes found</div>;
+    return <LimitError />;
   }
   const notes = AllNotes.reverse();
   return (

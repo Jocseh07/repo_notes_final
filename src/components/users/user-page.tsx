@@ -5,10 +5,11 @@ import { api } from "~/trpc/server";
 import UserRepositoryCard from "./UserRepositoryCard";
 import { Github } from "lucide-react";
 import Link from "next/link";
+import LimitError from "../common/LimitError";
 
 export default async function UserPage({ user }: { user: GetUserType }) {
   const repos = await api.repos.getUserRepos({ url: user.repos_url });
-  if (!repos) return;
+  if (!repos) return <LimitError />;
   const sortedData = [...repos].sort(
     (a, b) => (b.stargazers_count ?? 0) - (a.stargazers_count ?? 0),
   );
