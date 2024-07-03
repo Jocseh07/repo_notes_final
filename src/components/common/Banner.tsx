@@ -15,16 +15,26 @@ export default async function APIUsage() {
       )}
     >
       <div className="flex items-center justify-center gap-2 sm:gap-8">
-        <div>
+        <div
+          className={cn(
+            rates.rate.remaining < 5 ? "animate-pulse text-red-600" : "",
+          )}
+        >
           <p className="text-sm font-medium">API Usage Remaining</p>
           <p className="text-lg font-bold">
             {rates.rate.remaining} / {rates.rate.limit} Requests
           </p>
         </div>
-        <div>
+        <div
+          className={cn(
+            rates.resources.search.remaining < 5
+              ? "animate-pulse text-red-600"
+              : "",
+          )}
+        >
           <p className="text-sm font-medium">Search Usage Remaining</p>
           <p className="text-lg font-bold">
-            {rates.resources.search.remaining} / {rates.resources.search.limit}
+            {rates.resources.search.remaining} / {rates.resources.search.limit}{" "}
             Requests
           </p>
         </div>

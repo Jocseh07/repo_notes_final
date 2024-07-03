@@ -11,7 +11,7 @@ const searchRepositories = async (getParams: SearchProps) => {
   };
 
   const link = `https://api.github.com/search/repositories?q=${q}&sort=${params.sort}&order=${params.order}&per_page=${params.per_page}&page=${params.page}`;
-  const data = await fetcher<SearchReposType>(link);
+  const data = await fetcher<SearchReposType>(link, 60 * 60);
   return data;
 };
 

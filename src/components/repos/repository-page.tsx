@@ -7,6 +7,7 @@ import ReleasesSection from "./ReleasesSection";
 import UserSection from "./UserSection";
 import { Separator } from "../ui/separator";
 import NotesSection from "./NotesSection";
+import ReadmeAccordion from "./ReadmeAccordion";
 
 export async function RepositoryPage({ data }: { data: GetRepoType }) {
   return (
@@ -17,6 +18,7 @@ export async function RepositoryPage({ data }: { data: GetRepoType }) {
       <RepositoryPageHeader data={data} />
       <div className="mx-auto px-4 py-8 md:px-6">
         <div className="grid gap-8">
+          <ReadmeAccordion repoName={data.full_name} />
           <NotesSection repoId={data.id.toString()} repoName={data.full_name} />
           <div>
             <UserSection user={data.owner} />

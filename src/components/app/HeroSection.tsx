@@ -1,6 +1,6 @@
 function HeroSection() {
   return (
-    <section className="prose">
+    <section className="">
       <div className="container flex max-w-[800px] flex-col items-center justify-center">
         <section className="">
           <div className="mx-auto space-y-10 text-center">

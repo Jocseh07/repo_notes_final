@@ -12,20 +12,10 @@ import { Textarea } from "../ui/textarea";
 //   title: z.string().min(10, "Minimum 10 characters"),
 // });
 
-export default function AddNote({
-  handleAddNote,
-}: {
-  handleAddNote: (title: string, content: string) => void;
-}) {
-  const handleAdd = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const title = formData.get("title") as string;
-    const content = formData.get("content") as string;
-    handleAddNote(title, content);
-  };
+export default function AddNoteTest() {
+
   return (
-    <form onSubmit={handleAdd}>
+    <form >
       <div className="flex flex-col gap-4 rounded-lg border bg-background p-4 sm:p-6">
         <h2 className="text-xl font-semibold">Add/Edit Note</h2>
         <div className="grid gap-2">

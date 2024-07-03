@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardContent } from "~/components/ui/card";
 import { api } from "~/trpc/server";
+import LimitError from "../common/LimitError";
 
 export async function PopularReposCard({ language }: { language: string }) {
   const popular = await api.repos.getPopularRepos({ language });
   if (!popular) {
-    return;
+    return <LimitError />;
   }
 
   return (

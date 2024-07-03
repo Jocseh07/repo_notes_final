@@ -16,6 +16,8 @@ export type GetUserType =
   Endpoints["GET /users/{username}"]["response"]["data"];
 export type GetRepoType =
   Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"];
+export type GetRepoReadmeType =
+  Endpoints["GET /repos/{owner}/{repo}/readme"]["response"]["data"];
 export type GetRepoOnwerType =
   Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"]["owner"];
 export type getUserReposType =

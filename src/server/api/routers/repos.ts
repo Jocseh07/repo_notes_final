@@ -4,6 +4,7 @@ import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { GetRepoSchema, GetSearchSchema } from "~/types";
 import getPopularRepos from "~/utils/getPopularRepos";
 import getRepo from "~/utils/getRepo";
+import getRepoReadme from "~/utils/getRepoReadme";
 import getUserRepos from "~/utils/getUserRepos";
 import searchRepositories from "~/utils/searchRepositories";
 
@@ -30,4 +31,10 @@ export const repositoryRouter = createTRPCRouter({
     const repo = await getRepo(input);
     return repo;
   }),
+  getRepoReadme: publicProcedure
+    .input(GetRepoSchema)
+    .query(async ({ input }) => {
+      const repo = await getRepoReadme(input);
+      return repo;
+    }),
 });
