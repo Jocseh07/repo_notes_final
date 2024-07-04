@@ -20,7 +20,7 @@ export async function NavBar() {
         <SearchBar />
         <div className="flex items-center gap-2">
           {session && (
-            <Button variant="outline" size="sm" className="rounded-lg">
+            <Button variant="link" size="sm" className="rounded-lg">
               <Link href="/notes">My Notes</Link>
             </Button>
           )}
