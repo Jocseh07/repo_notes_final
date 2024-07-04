@@ -19,7 +19,7 @@ const fontSans = FontSans({
 export const metadata = {
   title: "Repo Notes",
   description: "Create notes for your repositories",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/logo2.png" }],
 };
 
 export default async function RootLayout({

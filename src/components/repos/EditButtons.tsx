@@ -19,7 +19,7 @@ export default function EditButtons({
 }) {
   return (
     <div className="flex justify-end gap-2">
-      <Button variant="outline" size="sm">
+      <div className="flex items-center justify-center">
         <EditNoteDialog
           id={id}
           title={title}
@@ -27,7 +27,7 @@ export default function EditButtons({
           repoName={repoName}
           repoId={repoId}
         />
-      </Button>
+      </div>
       <Button
         variant="ghost"
         size="sm"

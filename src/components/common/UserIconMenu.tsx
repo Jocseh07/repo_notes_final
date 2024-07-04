@@ -40,10 +40,10 @@ export function UserIconMenu({ userId }: { userId: string }) {
             <UserIcon className="mr-2 h-4 w-4" />
             Profile
           </DropdownMenuItem>
-          <DropdownMenuItem>
+          {/* <DropdownMenuItem>
             <NotebookTabs className="mr-2 h-4 w-4" />
             <Link href="/notes">My Notes</Link>
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
           <DropdownMenuSeparator />
           <DropdownMenuItem className="space-x-2" onClick={() => signOut()}>
             <LogOutIcon className="msr-2 h-4 w-4" />

@@ -38,8 +38,8 @@ function EditNoteDialog({
   return (
     <div>
       <Dialog>
-        <DialogTrigger className="rounded-full" asChild>
-          <FilePenIcon className="h-4 w-4" />
+        <DialogTrigger className="cursor-pointer rounded-full" asChild>
+          <FilePenIcon className="h-5 w-5" />
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <form onSubmit={handleSubmit}>
