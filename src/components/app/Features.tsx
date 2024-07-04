@@ -1,5 +1,6 @@
 import { FileTextIcon, SearchIcon, Users2Icon, UsersIcon } from "lucide-react";
 import Image from "next/image";
+import AboutSection from "./AboutSection";
 
 export default function FeaturesSection() {
   return (
@@ -19,13 +20,15 @@ export default function FeaturesSection() {
           </p>
         </div>
         <div className="order-1 flex w-full flex-col items-start gap-4 md:order-2 md:w-1/2">
-          <Image
-            src="/placeholder.svg"
-            alt="Make Notes on Repos"
-            width={300}
-            height={200}
-            className="rounded-lg"
-          />
+          <div className="flex max-h-72 max-w-96 items-center justify-center">
+            <Image
+              src="/notes.png"
+              alt="Make Notes on Repos"
+              width={400}
+              height={225}
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
       <div className="container mx-auto mt-12 flex max-w-4xl flex-col items-center justify-between gap-8 px-4 md:flex-row md:gap-12 md:px-6">
@@ -43,14 +46,16 @@ export default function FeaturesSection() {
             developments.
           </p>
         </div>
-        <div className="order-1 flex w-full flex-col items-start gap-4 md:order-2 md:w-1/2">
-          <Image
-            src="/placeholder.svg"
-            alt="Search Repositories"
-            width={300}
-            height={200}
-            className="rounded-lg"
-          />
+        <div className="order-1 flex w-full flex-col items-start gap-4 object-cover object-top md:order-2 md:w-1/2">
+          <div className="flex max-h-72 max-w-96 items-center justify-center">
+            <Image
+              src="/searchRepos.png"
+              alt="Search Repositories"
+              width={400}
+              height={225}
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
       <div className="container mx-auto mt-12 flex max-w-4xl flex-col items-center justify-between gap-8 px-4 md:flex-row md:gap-12 md:px-6">
@@ -68,16 +73,18 @@ export default function FeaturesSection() {
           </p>
         </div>
         <div className="order-1 flex w-full flex-col items-start gap-4 md:order-2 md:w-1/2">
-          <Image
-            src="/placeholder.svg"
-            alt="Explore Users"
-            width={300}
-            height={200}
-            className="rounded-lg"
-          />
+          <div className="relative flex max-h-96 min-h-72 min-w-72 max-w-96 items-center justify-center">
+            <Image
+              src="/searchUsers.png"
+              alt="Explore Users"
+              width={400}
+              height={225}
+              className="h-full w-full object-cover"
+            />
+          </div>
         </div>
       </div>
-
+      <AboutSection />
       <div className="mb-6 mt-6 text-center md:mb-10 lg:mb-12">
         <h2 className="mb-2 text-3xl font-bold md:text-4xl">
           Popular Repositories
