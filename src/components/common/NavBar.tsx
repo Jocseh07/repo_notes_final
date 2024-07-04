@@ -21,7 +21,12 @@ export async function NavBar() {
         <div className="flex items-center gap-2">
           {session && (
             <Button variant="link" size="sm" className="rounded-lg">
-              <Link href="/notes">My Notes</Link>
+              <Link
+                href="/notes"
+                className="cursor-pointer rounded-lg underline-offset-1 hover:underline"
+              >
+                My Notes
+              </Link>
             </Button>
           )}
           <ModeToggle />
