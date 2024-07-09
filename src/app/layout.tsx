@@ -27,6 +27,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Get session and pass to the session provider
   const session = await getServerAuthSession();
   return (
     <html lang="en">
@@ -37,13 +38,14 @@ export default async function RootLayout({
         )}
       >
         <TRPCReactProvider>
+          {/* Theme provider for dark mode toggle */}
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            {/* {children} */}
+            {/* Session provider for client components */}
             <SeshProvider session={session}>
               <NavBar />
               {children}

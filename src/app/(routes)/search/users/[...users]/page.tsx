@@ -10,6 +10,7 @@ export default async function GetUsers({
   params,
   searchParams,
 }: GetUsersProps) {
+  // Get the params
   const getParams = {
     q: params.users.join(""),
     sort: searchParams.sort ?? "stars",
@@ -17,11 +18,12 @@ export default async function GetUsers({
     per_page: searchParams.per_page ? +searchParams.per_page : 6,
     page: searchParams.page ? +searchParams.page : 1,
   };
-
+  // Get users from params and show error component if error
   const users = await api.users.searchUsers(getParams);
   if (!users) {
     return <LimitError />;
   }
+  // Pagination
   const totalPages = Math.ceil(users.total_count / getParams.per_page);
   const currentPage = getParams.page;
   let redirectURL = `/search/users/${params.users.join("")}?`;
