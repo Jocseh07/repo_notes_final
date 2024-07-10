@@ -19,8 +19,8 @@
 RepoNotes is a web application designed to help developers track, search, and note GitHub repositories efficiently. With features like user authentication via GitHub, data caching, and robust UI components, RepoNotes enhances productivity and streamlines repository management.
 
 **Deployed Site:** [RepoNotes Live](https://repo-notes-final.vercel.app/)  
-**Project Blog Article:** [Final Project Blog](https://your-blog-article-link.com)  
-**Author LinkedIn:** [Author Name](https://www.linkedin.com/in/your-linkedin-profile)
+**Project Blog Article:** [Final Project Blog](https://medium.com/@bellesheky/track-search-and-note-github-repositories-8fe231f62a76)  
+**Author LinkedIn:** [Author Name](https://www.linkedin.com/in/joseph-muturi-199065288/)
 
 ## Inspiration
 
@@ -105,7 +105,7 @@ Contributions are welcome! To contribute:
 - [GitHub API](https://docs.github.com/en/rest) - The official GitHub REST API documentation.
 - [Next.js](https://nextjs.org/) - A React framework for server-side rendering and static site generation.
 - [Supabase](https://supabase.io/) - An open-source Firebase alternative with a PostgreSQL database.
-- [Drizzle ORM](https://drizzle-orm.vercel.app/) - A lightweight TypeScript ORM for PostgreSQL, designed to work seamlessly with Next.js and Supabase.
+- [Drizzle ORM](https://orm.drizzle.team/) - A lightweight TypeScript ORM for PostgreSQL, designed to work seamlessly with Next.js and Supabase.
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
 - [shadcn/ui](https://github.com/shadcn/ui) - A set of accessible and customizable UI components built with Tailwind CSS.
 - [NextAuth.js](https://next-auth.js.org/) - An authentication solution for Next.js applications.
