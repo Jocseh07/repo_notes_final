@@ -10,6 +10,7 @@ import { getServerAuthSession } from "~/server/auth";
 
 export async function NavBar() {
   // const showAPIUsage = !!(remaining < limit / 2);
+  // Always show API usage
   const showAPIUsage = true;
   const session = await getServerAuthSession();
 

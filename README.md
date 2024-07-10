@@ -1,43 +1,94 @@
-# Create T3 App
+# RepoNotes
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Table of Contents
 
-## What's next? How do I make an app with this?
+- [Introduction](#-introduction)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Contributing](#-contributing)
+- [Related Projects](#-related-projects)
+- [License](#-license)
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Introduction
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [GITHUB](https://t3.gg/GITHUB) and ask for help.
+RepoNotes is a web application designed to help developers track, search, and note GitHub repositories efficiently. With features like user authentication via GitHub, data caching, and robust UI components, RepoNotes enhances productivity and streamlines repository management.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+**Deployed Site:** [RepoNotes Live](https://repo-notes-final.vercel.app/)  
+**Project Blog Article:** [Final Project Blog](https://your-blog-article-link.com)  
+**Author LinkedIn:** [Author Name](https://www.linkedin.com/in/your-linkedin-profile)
 
-## Learn More
+## Installation
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+To run RepoNotes locally, follow these steps:
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+1. Clone the repository:
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+   ```sh
+   git clone https://github.com/Jocseh07/repo_notes_final
+   cd repo_notes_final
+   ```
 
-## How do I deploy this?
+2. Install the required dependencies:
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+   ```sh
+   npm install
+   ```
 
-[] modal for add and edit notes
-[] notes page
-[]
-[]
-[]
-[]
-[]
-[]
-[]
-[]
-[]
-[]
-[]
+3. Set up environment variables:
+   Create a .env.local file in the root directory and add your environment variables. Refer to .env.example for required variables.
+
+4. Install the required dependencies:
+
+   ```sh
+   npm run dev
+   ```
+
+5. Open http://localhost:3000 to view the application in your browser.
+
+## Usage
+
+- **Search Repositories**: Use the search bar to find repositories by keywords.
+- \*\*View RepContributingPI rate limits.
+- **Search Users**: Look up GitHub users and view their profile information, including their repositories and contributions.
+- **Filter Results**: Apply filters to narrow down search results based on specific criteria such as language, stars, and forks.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a new branch:
+
+   ```sh
+   git checkout -b feature/your-feature
+   ```
+
+3. Make your changes and commit them:
+
+   ```sh
+   git commit -m 'Add your feature'
+   ```
+
+4. Push to the branch:
+
+   ```sh
+   git push origin feature/your-feature
+   ```
+
+5. Open a pull request to the main branch.
+
+## Related Projects
+
+- [GitHub API](https://docs.github.com/en/rest) - The official GitHub REST API documentation.
+- [Next.js](https://nextjs.org/) - A React framework for server-side rendering and static site generation.
+- [Supabase](https://supabase.io/) - An open-source Firebase alternative with a PostgreSQL database.
+- [Drizzle ORM](https://drizzle-orm.vercel.app/) - A lightweight TypeScript ORM for PostgreSQL, designed to work seamlessly with Next.js and Supabase.
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
+- [shadcn/ui](https://github.com/shadcn/ui) - A set of accessible and customizable UI components built with Tailwind CSS.
+- [NextAuth.js](https://next-auth.js.org/) - An authentication solution for Next.js applications.
+- [tRPC](https://trpc.io/) - A framework for building type-safe APIs using TypeScript, designed to work with Next.js.
+- [Vercel](https://vercel.com/) - A platform for deploying and hosting Next.js applications.
+
+## License
+
+This project is not licensed.

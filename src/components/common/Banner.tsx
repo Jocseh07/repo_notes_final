@@ -6,8 +6,9 @@ import LimitError from "./LimitError";
 import RatesSection from "./RatesSection";
 
 export default async function APIUsage() {
+  // Get session
   const session = await getServerAuthSession();
-
+  // Get rates
   const rates = await api.rates.getRates();
   if (!rates) return <LimitError />;
   return (

@@ -4,7 +4,9 @@ import { api } from "~/trpc/server";
 import LimitError from "../common/LimitError";
 
 export async function PopularReposCard({ language }: { language: string }) {
+  // Get popular repos
   const popular = await api.repos.getPopularRepos({ language });
+  // Error component
   if (!popular) {
     return <LimitError />;
   }

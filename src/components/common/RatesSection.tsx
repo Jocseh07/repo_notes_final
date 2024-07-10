@@ -6,15 +6,21 @@ import { cn } from "../lib/utils";
 import { usePathname } from "next/navigation";
 
 export default function RatesSection() {
+  // rates state
   const [rates, setRates] = useState<RatesType | undefined>(undefined);
+  // Get pathname
   const pathname = usePathname();
+  // Get session
   const { data } = useSession();
+  // create headers
+
   let headers = useMemo(() => ({}), []);
   if (data) {
     headers = {
       Authorization: `Bearer ${data.user.accessToken}`,
     };
   }
+  // Fetch rates depending on the pathname
   useEffect(() => {
     const fetchRates = async () => {
       try {
@@ -31,7 +37,7 @@ export default function RatesSection() {
     void fetchRates();
   }, [headers, pathname]);
   if (rates === undefined) {
-    return <div>Something went wrong</div>;
+    return <div>Loading ...</div>;
   }
   return (
     <div className="flex items-center justify-center gap-2 sm:gap-8">

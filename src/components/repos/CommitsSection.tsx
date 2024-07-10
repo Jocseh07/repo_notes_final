@@ -4,6 +4,7 @@ import { api } from "~/trpc/server";
 import type { GetRepoType } from "~/types";
 
 async function CommitsSection({ data }: { data: GetRepoType }) {
+  // Get commits
   const commits = await api.commits.getCommits({ url: data.commits_url });
   if (!commits) return;
   const lastThreeCommits = commits.slice(0, 3);
@@ -17,9 +18,9 @@ async function CommitsSection({ data }: { data: GetRepoType }) {
           {lastThreeCommits.map((commit) => (
             <div
               key={commit.sha}
-              className="bg-muted flex items-center gap-4 rounded-md p-4"
+              className="flex items-center gap-4 rounded-md bg-muted p-4"
             >
-              <div className="bg-muted-foreground/10 rounded-md p-2">
+              <div className="rounded-md bg-muted-foreground/10 p-2">
                 <GitCommitVerticalIcon className="h-6 w-6" />
               </div>
               <div className="flex-1">

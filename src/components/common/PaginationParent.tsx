@@ -11,6 +11,7 @@ export function PaginationParent({
   currentPage: number;
   redirectURL: string;
 }) {
+  // Handle routing for pagination
   const router = useRouter();
   const onChangePage = (page: number) => {
     if (page < 1 || page > totalPages) return;

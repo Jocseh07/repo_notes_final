@@ -18,6 +18,7 @@ function PaginationComponent({
   currentPage: number;
   onPageChange: (page: number) => void;
 }) {
+  // Pagination logic
   const startPage = Math.max(1, currentPage - 5);
   const endPage = Math.min(totalPages, currentPage + 4);
 

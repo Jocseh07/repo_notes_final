@@ -21,10 +21,12 @@ const searchFormSchema = z.object({
 type SearchType = "user" | "repo";
 
 export function SearchBar() {
+  // State for saerch type
   const [searchType, setSearchType] = useState<SearchType>("repo");
+  // Error state
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
-
+  // UseEffect to reset error state after 3 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setError(null);
@@ -32,10 +34,11 @@ export function SearchBar() {
 
     return () => clearTimeout(timer);
   }, [error]);
-
+  // Handle search type change
   const handleChange = () => {
     setSearchType(searchType === "repo" ? "user" : "repo");
   };
+  // Handle search with form submit
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);

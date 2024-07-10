@@ -13,9 +13,9 @@ import { Textarea } from "../ui/textarea";
 // });
 
 export default function AddNoteTest() {
-
+  // Note form submit handler
   return (
-    <form >
+    <form>
       <div className="flex flex-col gap-4 rounded-lg border bg-background p-4 sm:p-6">
         <h2 className="text-xl font-semibold">Add/Edit Note</h2>
         <div className="grid gap-2">

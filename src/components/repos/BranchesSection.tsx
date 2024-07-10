@@ -4,6 +4,7 @@ import { api } from "~/trpc/server";
 import type { GetRepoType } from "~/types";
 
 async function BranchesSection({ data }: { data: GetRepoType }) {
+  // Get branches
   const branches = await api.branches.getBranches({ url: data.branches_url });
   if (!branches) return;
   const lastThreeBranches = branches.slice(-3).reverse();

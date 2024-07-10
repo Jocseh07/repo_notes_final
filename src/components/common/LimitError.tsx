@@ -4,7 +4,9 @@ import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 
 const LimitError = () => {
+  // Error component
   const router = useRouter();
+  // Retry when clicked
   const retry = () => {
     router.refresh();
   };

@@ -3,6 +3,7 @@ import { Github } from "lucide-react";
 import { signIn, useSession } from "next-auth/react";
 
 function SignIn() {
+  // Sign in Button
   const { data } = useSession();
   if (data) {
     return null;

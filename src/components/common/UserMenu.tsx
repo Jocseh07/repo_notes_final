@@ -3,6 +3,7 @@ import { api } from "~/trpc/server";
 import { getServerAuthSession } from "~/server/auth";
 
 export async function UserMenu() {
+  // If session show the user icon menu
   const session = await getServerAuthSession();
   let userId = "";
   if (session) {

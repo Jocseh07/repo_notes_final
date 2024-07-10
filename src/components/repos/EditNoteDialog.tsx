@@ -27,6 +27,7 @@ function EditNoteDialog({
   title: string;
   id: string;
 }) {
+  // Note form submit handler for editing note
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);

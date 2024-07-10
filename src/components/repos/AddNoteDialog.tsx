@@ -20,6 +20,7 @@ function AddNoteDialog({
   repoId?: string;
   repoName?: string;
 }) {
+  // Note form submit handler
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);

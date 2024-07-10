@@ -16,19 +16,20 @@ export default async function GetRepositories({
     per_page: searchParams.per_page ? +searchParams.per_page : 10,
     page: searchParams.page ? +searchParams.page : 1,
   };
-
+  // Get data
   const repositoryData = await api.repos.searchRepos(getParams);
+  // Error component
   if (!repositoryData) {
     return <LimitError />;
   }
   const totalPages = Math.ceil(repositoryData.total_count / getParams.per_page);
+  // Pagination
   const currentPage = getParams.page;
   let redirectURL = `/search/repositories/${params.repos.join("+")}?`;
   if (searchParams.sort) redirectURL += `sort=${searchParams.sort}&`;
   if (searchParams.order) redirectURL += `order=${searchParams.order}&`;
   if (searchParams.per_page)
     redirectURL += `per_page=${searchParams.per_page}&`;
-
   return (
     <div className="">
       <div className="mx-auto px-4 py-8 sm:px-6 lg:px-8">
